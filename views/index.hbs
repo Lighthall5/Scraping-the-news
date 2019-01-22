@@ -1,0 +1,22 @@
+<div class="container col-10">
+    <h2 class="text-center display-6"></h2>
+    <div class="buttons mt-4">
+        <a href="/api/scrape" class="btn btn-outline-secondary btn-block">Scrape Some Articles</a> 
+    </div>
+    <div class="container mt-4">
+        {{#if articles}}
+        <h2 class="text-center display-7">Here are your scraped articles</h2>
+        {{#each articles as |article|}}
+        <div class="article container mb-3">
+            <div class="pt-3 pb-3">
+            <h4>{{article.title}}</h4>
+            <a href="{{article.link}}" target="_blank">{{article.link}}</a>
+            <button type="button" data-title="{{article.title}}" data-link={{article.link}} class="save-article btn btn-outline-secondary btn-block">Save Article</button>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h2 class="text-center display-7">Click the scrape button above to get the latest news</h2>
+        {{/if}}
+    </div>
+</div>
